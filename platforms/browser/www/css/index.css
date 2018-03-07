@@ -1,0 +1,29 @@
+html,body {
+        font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+li{
+    list-style-type: none;
+    font-size: 30px;
+}
+
+.container-fluid{
+    height:100%;
+}
+
+.scrollable{
+    overflow: auto;
+    height:90%;
+}
+
+.fixed_bot{
+    position: fixed;
+    bottom: 0;
+    height:10%;
+}

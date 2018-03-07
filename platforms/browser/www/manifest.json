@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Reminder",
+  "short_name": "Reminder",
+  "version": "io.cordova.hellocordova",
+  "description": "Simply a reminder app.",
+  "author": "Kenny",
+  "icons": [],
+  "start_url": "index.html"
+}

@@ -1,0 +1,39 @@
+html,body {
+        font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    text-transform:uppercase;
+    width:100%;
+}
+
+li{
+    list-style-type: none;
+    font-size: 30px;
+}
+
+.container-fluid{
+    height:100%;
+}
+
+.scrollable{
+    overflow: auto;
+    height:90%;
+}
+
+.fixed_bot{
+    width:100%;
+    position: fixed;
+    bottom: 0;
+    height:10%;
+}
+
+.text_new_msg{
+    height:100%;
+    font-size: 20px;
+    padding:0px;
+    margin:0px;
+}
+
+.star_checked{
+    color: orange;
+}
