@@ -6,12 +6,13 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Reminder</title>
     </head>
     <body>
         <div class="container-fluid">
             <div class="row scrollable">
-                <div class="col">
+                <div class="col-12">
                     <ul class="list-group">
                         <li class="list-group-item">123</li>
                         <li class="list-group-item">456</li>
@@ -28,18 +29,22 @@
                     </ul>
                 </div>
             </div>
-            <div class= "row fixed_bot">
+            <div class= "row fixed_bot align-items-center">
+                <div class="col-1">
+                    <span class="fa fa-star fa-2x star_check"></span>
+                </div>
                 <div class="col">
-                    <ul class="list-group">
-                        <li class="list-group-item add_new_item">add new items</li>
-                    </ul>
+                    <input type="text" class="text_new_msg form-control input-lg" placeholder="New Message" value=""/>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn_submit">Submit</button>
                 </div>
             </div>
         </div>
         <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/db.js"></script>
+        <script type="text/javascript" src="js/message.js"></script>
     </body>
 </html>
