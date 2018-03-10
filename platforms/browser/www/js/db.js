@@ -5,4 +5,15 @@ $(function(){
         databaseURL: "https://reminder-cd42f.firebaseio.com/"
     };
     firebase.initializeApp(config);
+
+    var connectedRef = firebase.database().ref(".info/connected");
+    connectedRef.on("value", function(snap) {
+      if (snap.val() === true) {
+        $(".connection_status").css("color","green");
+        $(".connection_status").html("Connected");
+      } else {
+        $(".connection_status").css("color","red");
+        $(".connection_status").html("Disconnected");
+      }
+    });
 });
