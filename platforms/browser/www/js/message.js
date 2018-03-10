@@ -1,12 +1,18 @@
 $(function(){
+    // To generate the date format
     function formatDate(){
         var date = new Date();
         var year = date.getFullYear();
         var month = (date.getMonth()+1);
+        month = (month < 10? "0"+month:month);
         var day = date.getDate();
+        day = (day < 10? "0"+day:day);
         var hour = date.getHours();
+        hour = (hour < 10? "0"+hour:hour);
         var min = date.getMinutes();
+        min = (min < 10? "0"+min:min);
         var sec = date.getSeconds();
+        sec = (sec < 10? "0"+sec:sec);
         return year+"-"+month+"-"+day+" "+hour+":"+min+":"+sec;
     }
 
@@ -20,28 +26,19 @@ $(function(){
     var database = firebase.database();
     var ref = database.ref('msg');
 
-    console.log(formatDate());
-
+    // To handle the submit button
     $(".btn_submit").click(function(){
         let text_msg = $(".text_new_msg").val();
+        let hasStar = $(".star_checked").hasClass("star_checked");
         if (text_msg != ""){
-            ref.set({
-                message1: {
-                    message: "hehe"
-                },
-                message2: {
-                    message: "hoho"
-                }
+            database.ref('msg/'+formatDate()).set({
+               message: text_msg,
+               star: hasStar
+               // time: formatDate()
             });
         }
+        // Reset input field
         $(".text_new_msg").val("");
+        $(".star_check").removeClass("star_checked");
     });
-
-    ref.on('value',function(snapshot){
-        snapshot.forEach(function(child){
-            var childData = child.val();
-            //console.log(childData.message);
-            $("#msg_list").append("<li class=\"list-group-item\">"+childData.message+"</li>");
-        });
-    })
 });

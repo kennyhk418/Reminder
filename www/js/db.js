@@ -6,6 +6,7 @@ $(function(){
     };
     firebase.initializeApp(config);
 
+    // Check if the db is connected and reflect in the title
     var connectedRef = firebase.database().ref(".info/connected");
     connectedRef.on("value", function(snap) {
       if (snap.val() === true) {

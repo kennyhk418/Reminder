@@ -7,36 +7,26 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Hello World</title>
+        <title>Reminder</title>
     </head>
     <body>
         <div class="container-fluid">
+            <div class="status">
+                <h4>Connetion Status: <span class="connection_status"></span></h4>
+            </div>
             <div class="row scrollable">
                 <div class="col-12">
-                    <ul class="list-group">
-                        <li class="list-group-item">123</li>
-                        <li class="list-group-item">456</li>
-                        <li class="list-group-item">123</li>
-                        <li class="list-group-item">456</li>
-                        <li class="list-group-item">123</li>
-                        <li class="list-group-item">456</li>
-                        <li class="list-group-item">123</li>
-                        <li class="list-group-item">456</li>
-                        <li class="list-group-item">123</li>
-                        <li class="list-group-item">456</li>
-                        <li class="list-group-item">123</li>
-                        <li class="list-group-item">456</li>
-                    </ul>
+                    <ul id = "msg_list" class="list-group"></ul>
                 </div>
             </div>
             <div class= "row fixed_bot align-items-center">
-                <div class="col-1">
+                <div class="col-1 text-right">
                     <span class="fa fa-star fa-2x star_check"></span>
                 </div>
                 <div class="col">
-                    <input type="text" class="text_new_msg form-control input-lg" placeholder="New Message"/>
+                    <input type="text" class="text_new_msg form-control input-lg" placeholder="New Message" value=""/>
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <button class="btn btn-primary btn_submit">Submit</button>
                 </div>
             </div>
@@ -45,5 +35,7 @@
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/db.js"></script>
+        <script type="text/javascript" src="js/message.js"></script>
+        <script type="text/javascript" src="js/list.js"></script>
     </body>
 </html>

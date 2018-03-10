@@ -37,3 +37,9 @@ li{
 .star_checked{
     color: orange;
 }
+
+.status{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color:grey;
+}

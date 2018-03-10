@@ -20,9 +20,6 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        $(".fa-star").click(function(){
-            $(".star_check").toggleClass("star_checked");
-        });
     },
 
     // deviceready Event Handler
