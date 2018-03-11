@@ -14,7 +14,11 @@ $(function(){
     ref.on('child_added',function(child){
         let message = child.val().message;
         let time = child.key;
-        console.log(time);
-        $("#msg_list").append('<li class="list-group-item ' +time+'">'+message+"</li>");
+        let star = child.val().star;
+        let add_star = (star==true? '<span class="fa fa-star" style="color:orange"></span>': '')
+        let append_list = '<li class="list-group-item ' +time+'""><b>'+ add_star+" "+message + '</b><br>';
+        append_list += '<span style="font-size:10px">'+time+'</span>';
+        append_list += '</li>';
+        $("#msg_list").append(append_list);
     });
 });

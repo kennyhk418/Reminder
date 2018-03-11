@@ -13,7 +13,7 @@ $(function(){
         min = (min < 10? "0"+min:min);
         var sec = date.getSeconds();
         sec = (sec < 10? "0"+sec:sec);
-        return year+"-"+month+"-"+day+" "+hour+":"+min+":"+sec;
+        return year+"-"+month+"-"+day+","+hour+":"+min+":"+sec;
     }
 
 
