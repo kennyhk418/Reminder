@@ -3,7 +3,7 @@
   "display": "standalone",
   "name": "Reminder",
   "short_name": "Reminder",
-  "version": "io.cordova.hellocordova",
+  "version": "com.reminder",
   "description": "Simply a reminder app.",
   "author": "Kenny",
   "icons": [],
