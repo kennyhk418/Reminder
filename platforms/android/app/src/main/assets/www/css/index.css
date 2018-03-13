@@ -9,6 +9,7 @@ li{
     list-style-type: none;
     font-size: 25px;
     line-height: normal;
+    word-wrap: break-word;
 }
 
 .container-fluid{
@@ -17,14 +18,14 @@ li{
 
 .scrollable{
     overflow: auto;
-    height:90%;
+    height:80%;
 }
 
 .fixed_bot{
     width:100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    height:10%;
+    height:15%;
 }
 
 .text_new_msg{

@@ -13,12 +13,12 @@ $(function(){
         min = (min < 10? "0"+min:min);
         var sec = date.getSeconds();
         sec = (sec < 10? "0"+sec:sec);
-        return year+"-"+month+"-"+day+","+hour+":"+min+":"+sec;
+        //return year+"-"+month+"-"+day+","+hour+":"+min+":"+sec;
+        return year+month+day+hour+min+sec;
     }
 
-
     // toggle the star (orange/black) when clicked
-    $(".fa-star").click(function(){
+    $(".star_check").click(function(){
         $(".star_check").toggleClass("star_checked");
     });
 
@@ -29,12 +29,11 @@ $(function(){
     // To handle the submit button
     $(".btn_submit").click(function(){
         let text_msg = $(".text_new_msg").val();
-        let hasStar = $(".star_checked").hasClass("star_checked");
+        let hasStar = $(".star_check").hasClass("star_checked");
         if (text_msg != ""){
             database.ref('msg/'+formatDate()).set({
                message: text_msg,
                star: hasStar
-               // time: formatDate()
             });
         }
         // Reset input field
