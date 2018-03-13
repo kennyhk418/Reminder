@@ -20,28 +20,38 @@ $(function(){
         let star = child.val().star;
 
         // Add a star if the message is starred
-        let add_star = (star==true? '<i class="fa fa-star" style="color:orange"></i>': '')
+        let add_star = (star==true? '<i class="fa fa-star star_checked"></i>': '')
         // Build the dynamic message
-        let append_list = '<li class="list-group-item"><b>'+ add_star+" "+'<span class=msg_'+time+'>'+message + '</span></b>';
+        let append_list = '<li class="list-group-item li_'+ time+'"><b>'+ add_star+" "+'<span class=msg_'+time+'>'+message + '</span></b><br>';
 
         append_list += '<button class="btn btn-link float-right del_'+ time+ '">';
         append_list += '<i class="far fa-trash-alt fa-2x"></i></button>';
 
-        append_list += '<button data-toggle="modal" class="btn btn-link float-right edit_'+ time+ '"><i class="fas fa-edit fa-2x"></i></button><br>';
+        append_list += '<button data-toggle="modal" class="btn btn-link float-right edit_'+ time+ '"><i class="fas fa-edit fa-2x"></i></button>';
         append_list += '<span style="font-size:10px">'+convertDate(time)+'</span>';
         append_list += '</li>';
         $("#msg_list").append(append_list);
     });
 
-    // Refresh the page after an element is removed or changed
+    // Remove the entire li item after removing data from the db
     ref.on('child_removed',function(child){
-        location.reload();
+        $(".li_"+child.key).remove();
     });
 
+    // Modify the data on li after data changed in db
     ref.on ('child_changed',function(child){
-        location.reload();
+        let star = child.val().star;
+        let add_star = (star==true? '<i class="fa fa-star star_checked"></i>': '')
+        if (add_star === ''){
+            $(".li_"+child.key+">b").children("i").remove();
+        }
+        else{
+            $(".li_"+child.key+">b").prepend(add_star);
+        }
+        $(".msg_"+child.key).text(child.val().message);
     })
 
+    // Add listener to edit button
     $(document).on('click','[class*="edit_"]',function(){
         // Getting the message key from the class attr
         let class_name = $(this).attr("class");
@@ -52,6 +62,11 @@ $(function(){
         $("#edit_modal").load("./edit_modal.html",function(){
             $("#edit_modal").modal('show');
 
+            if($(".li_"+firebase_key+">b").children('i').length > 0){
+                $("#edit_star_check").addClass("star_checked");
+            }
+
+            // Set the default text value as the original message
             $("#edit_message").val($(".msg_"+firebase_key).text());
 
             // toggle the star (orange/black) when clicked
