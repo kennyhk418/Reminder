@@ -42,10 +42,12 @@ $(function(){
     ref.on ('child_changed',function(child){
         let star = child.val().star;
         let add_star = (star==true? '<i class="fa fa-star star_checked"></i>': '')
+        // If user removes star
         if (add_star === ''){
             $(".li_"+child.key+">b").children("i").remove();
         }
-        else{
+        // If user keep star (star was originally put)
+        else if ($(".li_"+child.key+">b").children("i").length <= 0){
             $(".li_"+child.key+">b").prepend(add_star);
         }
         $(".msg_"+child.key).text(child.val().message);
